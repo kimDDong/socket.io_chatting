@@ -16,7 +16,7 @@ io.on('connection', function(socket){
   socket.on('disconnect', function(){
     console.log('user disconnected: ', socket.id);
   });
-  
+
   socket.on('send message', function(name,text){
     var msg = name + ' : ' + text;
     console.log(msg);
@@ -24,6 +24,7 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen('3000', function(){
+var port = process.env.PORT || 3000;
+http.listen(port, function(){
   console.log("server on!");
 });
